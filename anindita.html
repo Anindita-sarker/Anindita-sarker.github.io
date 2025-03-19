@@ -35,8 +35,10 @@
 <body>
   <img src="https://img.pikbest.com/origin/09/05/74/66RpIkbEsTjh8.png!sw800">
   <p>Hi! I'm Anindita, a student passionate about dance.Check out my project !</p>
+  <p>What is your favorite hobby?</p>
   <input type="text" id="Name" placeholder="Your name">
   <input type="email" id="Email" placeholder="Your email">
+  <input type="text" id="Hobby" placeholder="Your hobby">
   <input id="submit" type="submit">
   <script type="module">
   // Import the functions you need from the SDKs you need
@@ -64,6 +66,7 @@
   
   const Name = document.querySelector("#Name") 
   const Email = document.querySelector("#Email")
+  const Hobby =document.querySelector("#Hobby")
   document.querySelector('#submit').addEventListener('click', Submit)
   
 function Submit() {
@@ -71,11 +74,13 @@ function Submit() {
   
   set(ref(db, timestamp), {
 	  Name: Name.value,
-      email: Email.value,
+          email: Email.value,
+	  hobby: Hobby.value,
   });
 
   Name.value = ""
   Email.value = ""
+  Hobby.value = ""
 }
 function buildTimestamp() {
 	  const now = new Date();
