@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&display=swap" rel="stylesheet">
+'>
+<link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Unica+One&display=swap" rel="stylesheet">
+<style>
+body {
+  font-family:"Oswald", sans-serif;
+  margin: 0 auto;
+  max-width: 600px;
+  background: #232323;
+  background:url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThg64i1Ylb_G8ZXRI70GbwU12ZXUXZTRnLVA&s");
+
+}
+div {
+  height: 300px;
+  background-size: cover;
+  position: relative;
+  margin: 40px 0 0 0;
+  border-radius: 12px;
+}
+h1 {
+  font-family: "Edu AU VIC WA NT Pre", cursive;
+  text-align: center;
+  font-size: 75px;
+  color: orange;
+  margin: 60px 0 0 0;
+}
+h2 {
+   font-family: "Unica One", sans-serif;
+  text-align: center;
+  color: purple;
+  margin: 0px 0 70px 0;
+}
+p {
+  color: rgba(0,100,0,0.9);
+  background: black;
+  background: linear-gradient(bottom, rgba(255,0,0,1), rgba(150,100,180,.4));
+  background: -webkit-linear-gradient(bottom, rgba(255,0,0,1), rgba(150,100,180,.4));
+  background: -moz-linear-gradient(bottom, rgba(255,0,0,1), rgba(150,100,180.4));
+  padding: 10px;
+  line-height: 28px;
+  text-align: justify;
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  height: 30px;
+  transition: height .5s;
+  -webkit-transition: height .5s;
+  -moz-transition: height .5s;
+}
+
+small {
+  opacity: 0;
+}
+
+.show-description p {
+  height: 150px;
+}
+
+.show-description small {
+  opacity: 1;
+}
+
+.first{
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHqVy3VAl-w8addP2hhG2jNv965vspZI-qqQ&s");
+}
+.second{
+  background-image: url("https://houseofnasheats.com/wp-content/uploads/2023/08/Mixed-Paella-Recipe-1.jpg");
+}
+.dessert{
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlTSRL1EkgIZUkhVubbfGkmOT_FP7SOn8fwA&s");
+}
+.price {
+  float: right;
+}
+@media (max-width: 500px) {
+  h1 {
+    font-size: 50px;
+    margin-top: 20px;
+    line-height: 40px;
+  }
+  h2 {
+    font-size: 20px;
+    margin: 20px 0 30px 0;
+  }
+  div {
+    margin: 20px 12px 0 12px;
+  }
+  p {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  small {
+    font-size: 16px;
+  }
+  input {
+  	font-size: 22px;
+  }
+  
+}
+
+</style>
+
+</head>
+
+<body>
+<h1>"Sabores de Espana"</h1>
+<h2>(Flavors of spain)</h2>
+<div class="first">
+  <input type="number" min="0" style="width: 50px" class="quantities">
+  <p>Steak Tartare<span class="price">$12</span><br />
+  <small>Steak tartare is raw,finely chooped beeef seasoned with spices and sometimes a raw egg yolk.It's a bold dish,served with bread or crackers. </small></p>
+</div>
+
+<div class="second">
+  <input type="number" min="0" style="width: 50px" class="quantities">
+  <p>Paella  <span class="price">$18</span><br />
+  <small>A Spanish dish of saffron-flavored rice cooked with meats,seafood,and vegetablesThe key is to cook the rice perfectly,getting a crispy layer at the bottom.</small></p>
+</div>
+  
+<div class="dessert">
+  <input type="number" min="0" style="width: 50px" class="quantities">
+  <p>Sopaipilas<span class="price">$9</span><br />
+  <small>Sopaipillas are fried,fluffy,pastries commonn in the American Southwest.They're often sweet,served warm,and can be enjoyed plain or with toppings like honey,cinnamen sugar,or fruit.</small></p>
+</div>
+  <br><br>
+  <input type="text" id="Name" placeholder="Your name">
+  <input type="email" id="Email" placeholder="Your email">
+  <input id="submit" type="submit">
+  <br><br>
+
+<script>
+  $('div').on('click', function() {
+      $(this).toggleClass('show-description');
+  });
+  </script>
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+  import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
+  
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyB1225DOtU5Q5YkV1oB13mV49IFYXVvmcY",
+    authDomain: "aninditaproject-3.firebaseapp.com",
+    projectId: "aninditaproject-3",
+    storageBucket: "aninditaproject-3.firebasestorage.app",
+    messagingSenderId: "556868634425",
+    appId: "1:556868634425:web:282155d4cc4452072d4ae8"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app); 
+  const Name = document.querySelector("#Name") 
+  const Email = document.querySelector("#Email")
+  document.querySelector('#submit').addEventListener('click', Submit)
+  const quantities = document.querySelectorAll(".quantities") 
+  const prices = document.querySelectorAll(".price") 
+  const itemsList = ["Steak Tartare", "Paella", "Sopaipilas"]
+
+
+  
+  function Submit() {
+    const timestamp = buildTimestamp()
+      let total = 0 
+	  let cart = { }
+	  for  (let i=0; i<quantities.length; i=i+1) {
+	  	if (quantities[i].value != "0" && quantities[i].value != "") {	
+			  let price = prices[i].innerHTML.replace('$', '')
+			  total = total + quantities[i].value * price 
+			
+	  		cart[itemsList[i]] = parseInt(quantities[i].value) 
+	  	}
+		
+	  	quantities[i].value = ""
+	  }
+ 
+ 
+    set(ref(db, timestamp), {
+  	  Name: Name.value,
+      email: Email.value,
+	  cart: cart,
+      totalPrice: total,
+      paid: "not yet",
+		
+    });
+
+    Name.value = ""
+    Email.value = ""
+    
+
+	
+  }
+  function buildTimestamp() {
+
+	  
+  	  const now = new Date();
+  	  let timestamp = now.getFullYear().toString() + "/";
+  	  //const month = now.toLocaleString('default', { month: 'long' });
+
+  	  let month = now.getMonth()+1   //add 1 because Javascript uses 0 for January
+  	  month = month.toString()
+  	  month = addLeadingZero(month)
+  	  timestamp += month + "/"; 
+
+  	  let date = now.getDate().toString()
+  	  date = addLeadingZero(date)
+  	  timestamp += date + "/";
+
+  	  let hours = now.getHours().toString()
+  	  hours = addLeadingZero(hours)
+  	  timestamp += hours + ":";
+
+  	  let minutes = now.getMinutes().toString()
+  	  minutes = addLeadingZero(minutes)
+  	  timestamp += minutes + ":";
+
+  	  let seconds = now.getSeconds().toString()
+  	  seconds = addLeadingZero(seconds)
+  	  timestamp += seconds;
+  
+  	  return timestamp
+  	}
+	
+  	function addLeadingZero(units) {
+  		if (units.length < 2) {
+  			units = "0" + units
+  		}
+  		return units
+  	}
+</script>
+
+</body>
