@@ -76,6 +76,10 @@ small {
 .dessert{
   background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlTSRL1EkgIZUkhVubbfGkmOT_FP7SOn8fwA&s");
 }
+.starter{
+  background-image: url("https://images.contentstack.io/v3/assets/bltcedd8dbd5891265b/blt9f27a2bff3f619bf/664cbe049d58ffea213697b9/calmari-recipe-fried-calamari.jpg?q=70&width=3840&auto=webp");
+}
+
 .price {
   float: right;
 }
@@ -129,6 +133,13 @@ small {
   <p>Sopaipilas<span class="price">$9</span><br />
   <small>Sopaipillas are fried,fluffy,pastries commonn in the American Southwest.They're often sweet,served warm,and can be enjoyed plain or with toppings like honey,cinnamen sugar,or fruit.</small></p>
 </div>
+
+<div class="starter">
+  <input type="number" min="0" style="width: 50px" class="quantities">
+  <p>Calamari<span class="price">$16</span><br />
+  <small>Calamari is the Italian word for "squid" and refers to squid that has been prepared for cooking, often cut into rings and fried. It's a popular seafood dish, particularly in Mediterranean and North American cuisines. </small></p>
+</div>
+
   <br><br>
   <input type="text" id="Name" placeholder="Your name">
   <input type="email" id="Email" placeholder="Your email">
@@ -166,7 +177,7 @@ small {
   document.querySelector('#submit').addEventListener('click', Submit)
   const quantities = document.querySelectorAll(".quantities") 
   const prices = document.querySelectorAll(".price") 
-  const itemsList = ["Steak Tartare", "Paella", "Sopaipilas"]
+  const itemsList = ["Steak Tartare", "Paella", "Sopaipilas", "Calamari"]
 
 
   
